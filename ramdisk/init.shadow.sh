@@ -71,8 +71,8 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
 write /sys/devices/system/cpu/cpu5/online 1
 
 # cpu-boost
-write /sys/module/cpu_boost/parameters/input_boost_freq "0:1248000 4:768000"
-write /sys/module/cpu_boost/parameters/input_boost_ms 200
+write /sys/module/cpu_boost/parameters/input_boost_freq "0:960000 4:0"
+write /sys/module/cpu_boost/parameters/input_boost_ms 180
 
 # devfreq
 get-set-forall /sys/class/devfreq/qcom,cpubw*/governor bw_hwmon
