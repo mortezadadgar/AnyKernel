@@ -90,7 +90,7 @@ get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask $bcl_hotplug_soc_m
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
 # iosched
-write /sys/block/mmcblk0/queue/scheduler cfq
+write /sys/block/mmcblk0/queue/scheduler maple
 write /sys/block/mmcblk0/queue/rotational 0
 write /sys/block/mmcblk0/queue/iostats 0
 
