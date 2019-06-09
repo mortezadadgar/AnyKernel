@@ -48,7 +48,6 @@ write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 0
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "85 600000:45 787200:50 960000:60 1248000:80"
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 60000
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 80000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 30000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
@@ -60,11 +59,10 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "2000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 960000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "90 1248000:95"
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 30000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 40000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 20000
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/ignore_hispeed_on_notif 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 80000
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 30000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 48000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
 
 # plugin remaining A57s
@@ -88,11 +86,6 @@ write /sys/module/msm_thermal/core_control/enabled 1
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask $bcl_hotplug_mask
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask $bcl_hotplug_soc_mask
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
-
-# iosched
-write /sys/block/mmcblk0/queue/scheduler maple
-write /sys/block/mmcblk0/queue/rotational 0
-write /sys/block/mmcblk0/queue/iostats 0
 
 # virtual memory
 write /proc/sys/vm/swappiness 100
