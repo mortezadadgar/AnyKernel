@@ -41,6 +41,7 @@ dump_boot;
 # begin ramdisk changes
 
 # fstab.bullhead
+insert_line fstab.bullhead "data           f2fs" after "data           ext4" "/dev/block/platform/soc.0/f9824900.sdhci/by-name/userdata     /data           f2fs    nosuid,nodev,noatime,discard,fsync_mode=nobarrier,background_gc=off wait,check,quota,formattable,encryptable=/dev/block/platform/soc.0/f9824900.sdhci/by-name/metadata";
 patch_fstab fstab.bullhead none swap flags "zramsize=533413200" "zramsize=1066826400";
 
 # init.exec.rc
