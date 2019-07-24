@@ -34,3 +34,6 @@ write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,36
 
 # backlight dimmer
 write /sys/module/mdss_fb/parameters/backlight_dimmer 1
+
+# default smp affinity
+write f > /proc/irq/default_smp_affinity
