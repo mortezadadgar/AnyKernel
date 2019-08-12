@@ -21,7 +21,7 @@ function get-set-forall() {
 setprop dalvik.vm.heapminfree 2m
 
 # scheduler
-write /proc/sys/kernel/sched_small_task 30
+write /proc/sys/kernel/sched_small_task 20
 
 # virtual memory
 write /proc/sys/vm/swappiness 100
@@ -37,3 +37,7 @@ write /sys/module/mdss_fb/parameters/backlight_dimmer 1
 
 # default smp affinity
 write f > /proc/irq/default_smp_affinity
+
+# io_sched
+write /sys/block/mmcblk0/queue/scheduler cfq
+
