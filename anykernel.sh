@@ -34,6 +34,24 @@ ramdisk_compression=auto;
 set_perm_recursive 0 0 755 644 $ramdisk/*;
 set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 
+# Shadow Banner
+ui_print " ____  _   _    _    ____   _____        __"
+ui_print "/ ___|| | | |  / \  |  _ \ / _ \ \      / /"
+ui_print "\___ \| |_| | / _ \ | | | | | | \ \ /\ / / "
+ui_print " ___) |  _  |/ ___ \| |_| | |_| |\ V  V /  "
+ui_print "|____/|_| |_/_/   \_\____/ \___/  \_/\_/   "
+ui_print "                                           "
+ui_print " ____                                      "
+ui_print "| __ ) _   _                               "
+ui_print "|  _ \| | | |                              "
+ui_print "| |_) | |_| |                              "
+ui_print "|____/ \__, |                              "
+ui_print "       |___/                               "
+ui_print " __  __           _    ____ _____          "
+ui_print "|  \/  |_ __     / \  / ___| ____|         "
+ui_print "| |\/| | '__|   / _ \| |   |  _|           "
+ui_print "| |  | | |     / ___ \ |___| |___          "
+ui_print "|_|  |_|_|    /_/   \_\____|_____|         "      
 
 ## AnyKernel install
 dump_boot;
