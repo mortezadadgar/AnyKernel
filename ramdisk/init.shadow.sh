@@ -20,9 +20,6 @@ function get-set-forall() {
 # according to Qcom this legacy value improves first launch latencies
 setprop dalvik.vm.heapminfree 2m
 
-# scheduler
-write /proc/sys/kernel/sched_small_task 20
-
 # virtual memory
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/dirty_background_ratio 4
@@ -40,4 +37,27 @@ write f > /proc/irq/default_smp_affinity
 
 # io_sched
 write /sys/block/mmcblk0/queue/scheduler cfq
+
+# set default schedTune value for foreground/top-app
+write /dev/stune/foreground/schedtune.prefer_idle 1
+write /dev/stune/top-app/schedtune.boost 10
+write /dev/stune/top-app/schedtune.prefer_idle 1
+write /dev/stune/rt/schedtune.boost 30
+write /dev/stune/rt/schedtune.prefer_idle 1
+
+# disable thermal bcl hotplug to switch governor
+write /sys/module/msm_thermal/core_control/enabled 0
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
+
+# ensure at most one A57 is online when thermal hotplug is disabled
+write /sys/devices/system/cpu/cpu4/online 1
+write /sys/devices/system/cpu/cpu5/online 1
+
+# switch to schedfreq
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "sched"
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "sched"
+
+# re-enable thermal and BCL hotplug
+write /sys/module/msm_thermal/core_control/enabled 1
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
