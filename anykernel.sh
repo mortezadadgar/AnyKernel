@@ -10,10 +10,6 @@ do.modules=0
 do.cleanup=1
 do.cleanuponabort=0
 device.name1=bullhead
-device.name2=
-device.name3=
-device.name4=
-device.name5=
 supported.versions=
 supported.patchlevels=
 '; } # end properties
@@ -51,7 +47,7 @@ ui_print " __  __           _    ____ _____          "
 ui_print "|  \/  |_ __     / \  / ___| ____|         "
 ui_print "| |\/| | '__|   / _ \| |   |  _|           "
 ui_print "| |  | | |     / ___ \ |___| |___          "
-ui_print "|_|  |_|_|    /_/   \_\____|_____|         "      
+ui_print "|_|  |_|_|    /_/   \_\____|_____|         "
 
 ## AnyKernel install
 dump_boot;
@@ -67,7 +63,6 @@ patch_fstab fstab.bullhead none swap flags "zramsize=533413200" "zramsize=106682
 insert_line init.bullhead.rc "init.exec.rc" after "import init.bullhead.ramdump.rc" "import init.exec.rc";
 
 # end ramdisk changes
-
 
 write_boot;
 ## end install
