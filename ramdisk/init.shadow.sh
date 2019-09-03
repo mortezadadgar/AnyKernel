@@ -40,10 +40,9 @@ write /sys/block/mmcblk0/queue/scheduler cfq
 
 # set default schedTune value for foreground/top-app
 write /dev/stune/foreground/schedtune.prefer_idle 1
+write /dev/stune/foreground/schedtune.boost 5
 write /dev/stune/top-app/schedtune.boost 10
 write /dev/stune/top-app/schedtune.prefer_idle 1
-write /dev/stune/rt/schedtune.boost 30
-write /dev/stune/rt/schedtune.prefer_idle 1
 
 # disable thermal bcl hotplug to switch governor
 write /sys/module/msm_thermal/core_control/enabled 0
