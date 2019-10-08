@@ -54,8 +54,8 @@ write /sys/devices/system/cpu/cpu4/online 1
 write /sys/devices/system/cpu/cpu5/online 1
 
 # switch to schedfreq
-write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "sched"
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "sched"
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
 
 # re-enable thermal and BCL hotplug
 write /sys/module/msm_thermal/core_control/enabled 1
