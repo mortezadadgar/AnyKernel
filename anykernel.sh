@@ -68,6 +68,9 @@ patch_fstab fstab.bullhead /data ext4 options "noatime,nosuid,nodev,barrier=1,da
 # init.exec.rc
 insert_line init.bullhead.rc "init.exec.rc" after "import init.bullhead.ramdump.rc" "import init.exec.rc";
 
+# init.bullhead.rc
+replace_section init.bullhead.rc "service atfwd" " " "service atfwd /system/bin/ATFWD-daemon\n    disabled\n    class late_start\n    user system\n    group system radio\n";
+
 # end ramdisk changes
 
 
