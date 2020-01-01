@@ -54,11 +54,13 @@ ui_print "| |  | | |     / ___ \ |___| |___          "
 ui_print "|_|  |_|_|    /_/   \_\____|_____|         "
 
 ## AnyKernel install
-dump_boot;
+#dump_boot;
+split_boot;
 
 # begin ramdisk changes
 
 # end ramdisk changes
 
-write_boot;
+flash_boot;
+#write_boot;
 ## end install
