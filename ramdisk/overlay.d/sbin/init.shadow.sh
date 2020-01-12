@@ -40,8 +40,6 @@ write f > /proc/irq/default_smp_affinity
 
 # io_sched
 write /sys/block/mmcblk0/queue/scheduler cfq
-write /sys/block/mmcblk0/queue/iostats 0
-write /sys/block/mmcblk0rpmb/queue/iostats 0
 
 # Free memory cache
 write /proc/sysrq-trigger s
