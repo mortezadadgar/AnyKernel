@@ -297,10 +297,6 @@ if [ "$supported_lvl" ]; then
   fi;
 fi;
 
-ui_print "Pushing f2fs tools...";
-$bb cp $home/tools/*f2fs* /system/bin;
-ui_print " ";
-
 ui_print "Installing...";
 core=$($bb grep -oE 'ak.*core.sh' anykernel.sh);
 test -f tools/$core || $bb ln -s $home/tools/ak*-core.sh $home/tools/$core;
