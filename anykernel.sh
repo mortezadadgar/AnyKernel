@@ -7,6 +7,7 @@ properties() { '
 kernel.string=Shadow Kernel for the Nexus 5x by @mr.ace
 do.devicecheck=1
 do.modules=0
+do.systemless=1
 do.cleanup=1
 
 do.cleanuponabort=0
