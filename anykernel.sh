@@ -70,6 +70,9 @@ patch_fstab fstab.bullhead /data ext4 flags "wait,check,=/dev/block/platform/soc
 patch_fstab fstab.bullhead /cache ext4 options "lazytime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic" "noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic"
 patch_fstab fstab.bullhead none swap flags "zramsize=533413200" "zramsize=1066826400";
 
+# init.exec.rc
+insert_line init.bullhead.rc "init.exec.rc" after "import init.bullhead.ramdump.rc" "import init.exec.rc";
+
 # init.bullhead.rc
 replace_section init.bullhead.rc "service atfwd" " " "service #atfwd /system/bin/ATFWD-daemon\n    disabled\n    class #late_start\n    user system\n    group system radio\n";
 
