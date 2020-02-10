@@ -30,7 +30,7 @@ write /proc/sys/vm/dirty_ratio 10
 write /proc/sys/vm/dirty_writeback_centisecs 3000
 
 # lmk
-write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,36864,46080"
+write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,49408,63488"
 
 # backlight dimmer
 write /sys/module/mdss_fb/parameters/backlight_dimmer 1
