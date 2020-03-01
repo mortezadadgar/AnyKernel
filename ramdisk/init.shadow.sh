@@ -24,6 +24,7 @@ setprop dalvik.vm.heapminfree 2m
 write /proc/sys/kernel/sched_small_task 20
 
 # virtual memory
+write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/dirty_background_ratio 4
 write /proc/sys/vm/dirty_ratio 10
 write /proc/sys/vm/dirty_writeback_centisecs 3000
