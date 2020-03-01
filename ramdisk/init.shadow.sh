@@ -22,6 +22,8 @@ setprop dalvik.vm.heapminfree 2m
 
 # scheduler
 write /proc/sys/kernel/sched_small_task 20
+get-set-forall /sys/devices/system/cpu/*/sched_mostly_idle_nr_run 3
+get-set-forall /sys/devices/system/cpu/*/sched_mostly_idle_load 20
 
 # virtual memory
 write /proc/sys/vm/swappiness 100
