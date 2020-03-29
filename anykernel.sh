@@ -75,6 +75,9 @@ insert_line init.bullhead.rc "init.exec.rc" after "import init.bullhead.ramdump.
 
 # init.bullhead.rc
 replace_section init.bullhead.rc "service atfwd" " " "service #atfwd /system/bin/ATFWD-daemon\n    disabled\n    class #late_start\n    user system\n    group system radio\n";
+insert_line init.bullhead.rc "/dev/cpuset/camera-daemon" after "write /proc/sys/vm/page-cluster 0" "\n    mkdir /dev/cpuset/camera-daemon\n    write /dev/cpuset/camera-daemon/cpus 0\n    write /dev/cpuset/camera-daemon/mems 0\n    chown system system /dev/cpuset/camera-daemon\n    chown system system /dev/cpuset/camera-daemon/tasks\n    chmod 0664 /dev/cpuset/camera-daemon/tasks\n    write /dev/cpuset/camera-daemon/cpus 0-3\n"
+insert_line init.bullhead.rc "/dev/cpuset/camera-daemon/cpus" after "write /dev/cpuset/top-app/cpus 0-5" "    write /dev/cpuset/camera-daemon/cpus 0-3"
+replace_section init.bullhead.rc "service qcamerasvr" " " "service qcamerasvr /vendor/bin/mm-qcamera-daemon\n    class late_start\n    user camera\n    group camera system inet input graphics\n    writepid /dev/cpuset/camera-daemon/tasks\n"
 
 
 # end ramdisk changes
