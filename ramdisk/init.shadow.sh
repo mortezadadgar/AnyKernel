@@ -14,6 +14,14 @@ function get-set-forall() {
     done
 }
 
+# macro to write pids to system-background cpuset
+function writepid_sbg() {
+    until [ ! "$1" ]; do
+        echo -n $1 > /dev/cpuset/system-background/tasks;
+        shift;
+    done;
+}
+
 ################################################################################
 
 
@@ -48,3 +56,29 @@ write /proc/sys/vm/drop_caches 3
 write /sys/module/cpu_boost/parameters/input_boost_enabled 1
 write /sys/module/cpu_boost/parameters/input_boost_ms 98
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:1248000"
+
+RMT_STORAGE=`pidof rmt_storage`
+QMUXD=`pidof qmuxd`
+QTI=`pidof qti`
+NETMGRD=`pidof netmgrd`
+THERMAL_ENGINE=`pidof thermal-engine`
+LOC_LAUNCHER=`pidof loc_launcher`
+CNSS_DAEMON=`pidof cnss-daemon`
+QSEECOMD=`pidof qseecomd`
+TIME_DAEMON=`pidof time_daemon`
+CND=`pidof cnd`
+IMSQMIDAEMON=`pidof imsqmidaemon`
+IMSDATADAEMON=`pidof imsdatadaemon`
+
+writepid_sbg $RMT_STORAGE
+writepid_sbg $QMUXD
+writepid_sbg $QTI
+writepid_sbg $NETMGRD
+writepid_sbg $THERMAL_ENGINE
+writepid_sbg $LOC_LAUNCHER
+writepid_sbg $CNSS_DAEMON
+writepid_sbg $QSEECOMD
+writepid_sbg $TIME_DAEMON
+writepid_sbg $CND
+writepid_sbg $IMSQMIDAEMON
+writepid_sbg $IMSDATADAEMON
