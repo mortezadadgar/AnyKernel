@@ -57,6 +57,10 @@ write /sys/module/cpu_boost/parameters/input_boost_enabled 1
 write /sys/module/cpu_boost/parameters/input_boost_ms 98
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:1248000"
 
+# enable eis
+setprop persist.camera.eis.enable 1
+setprop persist.camera.is_type 4
+
 RMT_STORAGE=`pidof rmt_storage`
 QMUXD=`pidof qmuxd`
 QTI=`pidof qti`
