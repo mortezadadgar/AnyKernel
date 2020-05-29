@@ -61,6 +61,9 @@ write /sys/module/cpu_boost/parameters/input_boost_freq "0:1248000"
 setprop persist.camera.eis.enable 1
 setprop persist.camera.is_type 4
 
+# lmk
+write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,49408,63488"
+
 RMT_STORAGE=`pidof rmt_storage`
 QMUXD=`pidof qmuxd`
 QTI=`pidof qti`
