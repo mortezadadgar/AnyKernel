@@ -48,12 +48,7 @@ write f > /proc/irq/default_smp_affinity
 # io_sched
 write /sys/block/mmcblk0/queue/scheduler cfq
 
-# Free memory cache
-write /proc/sysrq-trigger s
-write /proc/sys/vm/drop_caches 3
-
 # cpu-boost
-write /sys/module/cpu_boost/parameters/input_boost_enabled 1
 write /sys/module/cpu_boost/parameters/input_boost_ms 98
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:1248000"
 
